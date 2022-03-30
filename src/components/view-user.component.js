@@ -71,13 +71,13 @@ export default class ViewUser extends Component {
 
   componentDidMount() {
     const userId = this.props.match.params.id;
-    axios.get(`http://localhost:9009/users/${userId}`)
+    axios.get(`https://workout-scheduling.herokuapp.com/users/${userId}`)
       .then(response => {
         this.setState({
           user: response.data
         });
 
-        axios.post('http://localhost:9009/exercises/findExerciseByUserName', {
+        axios.post('https://workout-scheduling.herokuapp.com/exercises/findExerciseByUserName', {
           userName: this.state.user.userName
         })
           .then(response => {

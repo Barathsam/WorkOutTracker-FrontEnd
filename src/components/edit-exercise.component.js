@@ -24,7 +24,7 @@ export default class EditExercise extends Component {
 
   componentDidMount() {
     const exerciseId = this.props.match.params.id;
-    axios.get(`http://localhost:9009/exercises/${exerciseId}`)
+    axios.get(`https://workout-scheduling.herokuapp.com/exercises/${exerciseId}`)
       .then(response => {
         this.setState({
           userName: response.data.userName,
@@ -35,7 +35,7 @@ export default class EditExercise extends Component {
       })
       .catch(error => console.log(error));
 
-    axios.get('http://localhost:9009/users/')
+    axios.get('https://workout-scheduling.herokuapp.com/users/')
       .then(response => {
         if( response.data.length > 0 ) {
           this.setState({
@@ -82,7 +82,7 @@ export default class EditExercise extends Component {
     console.log(exercise);
 
     const exerciseId = this.props.match.params.id;
-    axios.post(`http://localhost:9009/exercises/update/${exerciseId}`, exercise)
+    axios.post(`https://workout-scheduling.herokuapp.com/exercises/update/${exerciseId}`, exercise)
       .then(res => console.log(res.data));
 
     window.location = '/';

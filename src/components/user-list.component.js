@@ -24,7 +24,7 @@ export default class UserList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:9009/users')
+    axios.get('https://workout-scheduling.herokuapp.com/users')
       .then(response => {
         this.setState({
           users: response.data
